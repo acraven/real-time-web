@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTime.Web", "RealTime.We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTime.Service", "RealTime.Service\RealTime.Service.csproj", "{9D9D1ED9-A837-4F94-8C34-E5ABEF618950}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTime.Messages", "RealTime.Messages\RealTime.Messages.csproj", "{55C6A4F5-2E55-45FA-B78E-4D364979CB95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTime.ServiceBus", "RealTime.ServiceBus\RealTime.ServiceBus.csproj", "{C3BC3C7B-EDF1-458F-A073-C36EA88215AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTime.ServiceBus.EasyNetQ", "RealTime.ServiceBus.EasyNetQ\RealTime.ServiceBus.EasyNetQ.csproj", "{CDCD1CFD-BC64-4E1C-B9E2-39CEDE986157}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +27,18 @@ Global
 		{9D9D1ED9-A837-4F94-8C34-E5ABEF618950}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D9D1ED9-A837-4F94-8C34-E5ABEF618950}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D9D1ED9-A837-4F94-8C34-E5ABEF618950}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55C6A4F5-2E55-45FA-B78E-4D364979CB95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55C6A4F5-2E55-45FA-B78E-4D364979CB95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55C6A4F5-2E55-45FA-B78E-4D364979CB95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55C6A4F5-2E55-45FA-B78E-4D364979CB95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3BC3C7B-EDF1-458F-A073-C36EA88215AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3BC3C7B-EDF1-458F-A073-C36EA88215AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3BC3C7B-EDF1-458F-A073-C36EA88215AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3BC3C7B-EDF1-458F-A073-C36EA88215AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDCD1CFD-BC64-4E1C-B9E2-39CEDE986157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDCD1CFD-BC64-4E1C-B9E2-39CEDE986157}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDCD1CFD-BC64-4E1C-B9E2-39CEDE986157}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDCD1CFD-BC64-4E1C-B9E2-39CEDE986157}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
