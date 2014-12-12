@@ -12,6 +12,10 @@
          FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
          RouteConfig.RegisterRoutes(RouteTable.Routes);
          BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+         var container = ContainerConfig.RegisterContainer();
+
+         ControllerBuilder.Current.SetControllerFactory(new ControllerFactory(container));
       }
    }
 }
