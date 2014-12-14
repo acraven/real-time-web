@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTime.ServiceBus.EasyNet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTime.ServiceBus.EasyNetQ.Integration.Tests", "RealTime.ServiceBus.EasyNetQ.Integration.Tests\RealTime.ServiceBus.EasyNetQ.Integration.Tests.csproj", "{9222D772-167C-4BDE-8DDF-ECB80AB0B7A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTime.Domain.Persistence.RavenDb.Integration.Tests", "RealTime.Domain.Persistence.RavenDb.Integration.Tests\RealTime.Domain.Persistence.RavenDb.Integration.Tests.csproj", "{767E262F-3DBB-40A9-BBAF-B2816D6891B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{9222D772-167C-4BDE-8DDF-ECB80AB0B7A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9222D772-167C-4BDE-8DDF-ECB80AB0B7A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9222D772-167C-4BDE-8DDF-ECB80AB0B7A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{767E262F-3DBB-40A9-BBAF-B2816D6891B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{767E262F-3DBB-40A9-BBAF-B2816D6891B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{767E262F-3DBB-40A9-BBAF-B2816D6891B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{767E262F-3DBB-40A9-BBAF-B2816D6891B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

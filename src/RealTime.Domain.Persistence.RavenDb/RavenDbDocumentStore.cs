@@ -26,5 +26,18 @@
             session.SaveChanges();
          }
       }
+
+      public TDocument Retrieve<TDocument>(Guid id) where TDocument : class
+      {
+         if (id == Guid.Empty)
+         {
+            throw new ArgumentException("id");
+         }
+
+         using (var session = this.documentStore.OpenSession())
+         {
+            return session.Load<TDocument>(id);
+         }
+      }
    }
 }

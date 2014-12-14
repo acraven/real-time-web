@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{89DAA6FA-A2FD-49E7-8C7A-3102DA2E0A9B}</ProjectGuid>
+    <ProjectGuid>{767E262F-3DBB-40A9-BBAF-B2816D6891B7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RealTime.Domain.Persistence.RavenDb.Unit.Tests</RootNamespace>
-    <AssemblyName>RealTime.Domain.Persistence.RavenDb.Unit.Tests</AssemblyName>
+    <RootNamespace>RealTime.Domain.Persistence.RavenDb.Integration.Tests</RootNamespace>
+    <AssemblyName>RealTime.Domain.Persistence.RavenDb.Integration.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,14 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="RavenDbDocumentStoreTests\RetrieveShould.cs" />
-    <Compile Include="RavenDbDocumentStoreTests\StoreShould.cs" />
+    <Compile Include="PersistenceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="FakeItEasy">
-      <HintPath>..\packages\FakeItEasy.1.25.1\lib\net40\FakeItEasy.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -50,6 +46,7 @@
     <Reference Include="System.ComponentModel.Composition" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -58,7 +55,7 @@
       <Name>RealTime.Domain.Persistence.RavenDb</Name>
     </ProjectReference>
     <ProjectReference Include="..\RealTime.Domain\RealTime.Domain.csproj">
-      <Project>{80c75b0b-8a20-47c2-8901-4066c26da765}</Project>
+      <Project>{80C75B0B-8A20-47C2-8901-4066C26DA765}</Project>
       <Name>RealTime.Domain</Name>
     </ProjectReference>
   </ItemGroup>
