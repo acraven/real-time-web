@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTime.Domain.Persistence
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTime.Web.Tests", "RealTime.Web.Tests\RealTime.Web.Tests.csproj", "{5E09FE5F-1833-4C11-9396-6C79D2BD246F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTime.ServiceBus.EasyNetQ.Unit.Tests", "RealTime.ServiceBus.EasyNetQ.Unit.Tests\RealTime.ServiceBus.EasyNetQ.Unit.Tests.csproj", "{3DA35619-6E10-4F85-97BB-C1A3B5951551}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTime.ServiceBus.EasyNetQ.Integration.Tests", "RealTime.ServiceBus.EasyNetQ.Integration.Tests\RealTime.ServiceBus.EasyNetQ.Integration.Tests.csproj", "{9222D772-167C-4BDE-8DDF-ECB80AB0B7A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{5E09FE5F-1833-4C11-9396-6C79D2BD246F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E09FE5F-1833-4C11-9396-6C79D2BD246F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E09FE5F-1833-4C11-9396-6C79D2BD246F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DA35619-6E10-4F85-97BB-C1A3B5951551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DA35619-6E10-4F85-97BB-C1A3B5951551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DA35619-6E10-4F85-97BB-C1A3B5951551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DA35619-6E10-4F85-97BB-C1A3B5951551}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9222D772-167C-4BDE-8DDF-ECB80AB0B7A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9222D772-167C-4BDE-8DDF-ECB80AB0B7A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9222D772-167C-4BDE-8DDF-ECB80AB0B7A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9222D772-167C-4BDE-8DDF-ECB80AB0B7A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

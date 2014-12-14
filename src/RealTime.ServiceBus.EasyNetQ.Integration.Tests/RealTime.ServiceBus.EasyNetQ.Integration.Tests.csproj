@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C3BC3C7B-EDF1-458F-A073-C36EA88215AD}</ProjectGuid>
+    <ProjectGuid>{9222D772-167C-4BDE-8DDF-ECB80AB0B7A0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RealTime.ServiceBus</RootNamespace>
-    <AssemblyName>RealTime.ServiceBus</AssemblyName>
+    <RootNamespace>RealTime.ServiceBus.EasyNetQ.Integration.Tests</RootNamespace>
+    <AssemblyName>RealTime.ServiceBus.EasyNetQ.Integration.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,13 +30,37 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="IMessageHandlerFactory.cs" />
-    <Compile Include="IMessageHandler.cs" />
-    <Compile Include="IServiceBus.cs" />
+    <Compile Include="SubscriptionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RealTime.ServiceBus.EasyNetQ\RealTime.ServiceBus.EasyNetQ.csproj">
+      <Project>{CDCD1CFD-BC64-4E1C-B9E2-39CEDE986157}</Project>
+      <Name>RealTime.ServiceBus.EasyNetQ</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RealTime.ServiceBus\RealTime.ServiceBus.csproj">
+      <Project>{C3BC3C7B-EDF1-458F-A073-C36EA88215AD}</Project>
+      <Name>RealTime.ServiceBus</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EasyNetQ">
+      <HintPath>..\packages\EasyNetQ.0.39.2.334\lib\net40\EasyNetQ.dll</HintPath>
+    </Reference>
+    <Reference Include="FakeItEasy">
+      <HintPath>..\packages\FakeItEasy.1.25.1\lib\net40\FakeItEasy.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="RabbitMQ.Client">
+      <HintPath>..\packages\RabbitMQ.Client.3.4.0\lib\net35\RabbitMQ.Client.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

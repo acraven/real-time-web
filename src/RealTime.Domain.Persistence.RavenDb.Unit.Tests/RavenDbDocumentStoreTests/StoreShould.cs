@@ -13,7 +13,7 @@
       private IDocumentStore documentStore;
       private IDocumentSession documentSession;
 
-      private RavenDbDocumentStore ravenDbDocumentStore;
+      private IStoreDocuments ravenDbDocumentStore;
 
       [SetUp]
       public void SetupBeforeEachTest()
