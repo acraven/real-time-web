@@ -2,17 +2,19 @@
 {
    using global::EasyNetQ;
 
+   using RealTime.Core.DependencyInjection;
+
    public class EasyNetQServiceBus : IServiceBus
    {
       private readonly IBus bus;
-      private readonly IMessageHandlerFactory messageHandlerFactory;
+      private readonly IResolveDependencies resolveDependencies;
 
       public EasyNetQServiceBus(
          IBus bus,
-         IMessageHandlerFactory messageHandlerFactory)
+         IResolveDependencies resolveDependencies)
       {
          this.bus = bus;
-         this.messageHandlerFactory = messageHandlerFactory;
+         this.resolveDependencies = resolveDependencies;
       }
 
       public void Subscribe<TMessage, TMessageHandler>()
@@ -33,7 +35,7 @@
       {
          //// TODO: Consider wrapping the following lines in some sort of context for the benefit of DI lifetime
 
-         var messageHandler = this.messageHandlerFactory.Create<TMessage, TMessageHandler>();
+         var messageHandler = this.resolveDependencies.Resolve<TMessageHandler>();
 
          messageHandler.Handle(message);
       }

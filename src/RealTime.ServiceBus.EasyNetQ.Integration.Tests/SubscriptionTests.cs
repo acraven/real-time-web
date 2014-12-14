@@ -4,11 +4,16 @@
    using System.Linq;
    using System.Threading;
 
+   using Castle.MicroKernel.Registration;
+   using Castle.Windsor;
+
    using global::EasyNetQ;
 
    using FakeItEasy;
 
    using NUnit.Framework;
+
+   using RealTime.Core.DependencyInjection.Castle;
 
    public class SubscriptionTests
    {
@@ -18,14 +23,15 @@
          const int Messages = 20;
 
          var sequences = new ConcurrentBag<int>();
-
-         var messageHandlerFactory = A.Fake<IMessageHandlerFactory>();
          var messageHandler = new TestMessageHandler(sequences);
-         A.CallTo(() => messageHandlerFactory.Create<TestMessage, TestMessageHandler>()).Returns(messageHandler);
+
+         var windsorContainer = new WindsorContainer();
+         windsorContainer.Register(Component.For<TestMessageHandler>().Instance(messageHandler));
+         var dependencyResolver = new CastleDependencyResolver(windsorContainer);
 
          using (var bus = RabbitHutch.CreateBus("host=localhost"))
          {
-            var serviceBus = new EasyNetQServiceBus(bus, messageHandlerFactory);
+            var serviceBus = new EasyNetQServiceBus(bus, dependencyResolver);
 
             serviceBus.Subscribe<TestMessage, TestMessageHandler>();
 

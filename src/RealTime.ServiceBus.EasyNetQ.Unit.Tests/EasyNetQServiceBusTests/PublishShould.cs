@@ -6,10 +6,12 @@
 
    using NUnit.Framework;
 
+   using RealTime.Core.DependencyInjection;
+
    public class PublishShould
    {
       private IBus bus;
-      private IMessageHandlerFactory messageHandlerFactory;
+      private IResolveDependencies resolveDependencies;
 
       private IServiceBus easyNetQServiceBus;
 
@@ -17,9 +19,9 @@
       public void SetupBeforeEachTest()
       {
          this.bus = A.Fake<IBus>();
-         this.messageHandlerFactory = A.Fake<IMessageHandlerFactory>();
+         this.resolveDependencies = A.Fake<IResolveDependencies>();
 
-         this.easyNetQServiceBus = new EasyNetQServiceBus(this.bus, this.messageHandlerFactory);
+         this.easyNetQServiceBus = new EasyNetQServiceBus(this.bus, this.resolveDependencies);
       }
 
       [Test]

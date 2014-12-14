@@ -8,10 +8,12 @@
 
    using NUnit.Framework;
 
+   using RealTime.Core.DependencyInjection;
+
    public class SubscribeShould
    {
       private IBus bus;
-      private IMessageHandlerFactory messageHandlerFactory;
+      private IResolveDependencies resolveDependencies;
 
       private IServiceBus easyNetQServiceBus;
 
@@ -19,9 +21,9 @@
       public void SetupBeforeEachTest()
       {
          this.bus = A.Fake<IBus>();
-         this.messageHandlerFactory = A.Fake<IMessageHandlerFactory>();
+         this.resolveDependencies = A.Fake<IResolveDependencies>();
 
-         this.easyNetQServiceBus = new EasyNetQServiceBus(this.bus, this.messageHandlerFactory);
+         this.easyNetQServiceBus = new EasyNetQServiceBus(this.bus, this.resolveDependencies);
       }
 
       [Test]
@@ -57,7 +59,7 @@
 
          action(new TestMessage());
 
-         A.CallTo(() => this.messageHandlerFactory.Create<TestMessage, TestMessageHandler>()).MustHaveHappened(Repeated.Exactly.Once);
+         A.CallTo(() => this.resolveDependencies.Resolve<TestMessageHandler>()).MustHaveHappened(Repeated.Exactly.Once);
       }
 
       [Test]
@@ -65,9 +67,9 @@
       {
          var action = this.SubscribeAction();
          var message = new TestMessage();
-         var messageHandler = A.Fake<IMessageHandler<TestMessage>>();
+         var messageHandler = A.Fake<TestMessageHandler>();
 
-         A.CallTo(() => this.messageHandlerFactory.Create<TestMessage, TestMessageHandler>()).Returns(messageHandler);
+         A.CallTo(() => this.resolveDependencies.Resolve<TestMessageHandler>()).Returns(messageHandler);
 
          action(message);
 
@@ -89,11 +91,10 @@
       {
       }
 
-      private abstract class TestMessageHandler : IMessageHandler<TestMessage>
+      public abstract class TestMessageHandler : IMessageHandler<TestMessage>
       {
-         public void Handle(TestMessage message)
+         public virtual void Handle(TestMessage message)
          {
-            throw new NotImplementedException();
          }
       }
    }

@@ -34,6 +34,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RealTime.Core.DependencyInjection.Castle\RealTime.Core.DependencyInjection.Castle.csproj">
+      <Project>{8E503F93-8CF8-4071-8961-7ABA27598237}</Project>
+      <Name>RealTime.Core.DependencyInjection.Castle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RealTime.Core\RealTime.Core.csproj">
+      <Project>{2feab888-b9ed-44df-8aa6-e9f25aa2f06f}</Project>
+      <Name>RealTime.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RealTime.ServiceBus.EasyNetQ\RealTime.ServiceBus.EasyNetQ.csproj">
       <Project>{CDCD1CFD-BC64-4E1C-B9E2-39CEDE986157}</Project>
       <Name>RealTime.ServiceBus.EasyNetQ</Name>
@@ -44,6 +52,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="EasyNetQ">
       <HintPath>..\packages\EasyNetQ.0.39.2.334\lib\net40\EasyNetQ.dll</HintPath>
     </Reference>
@@ -58,6 +72,7 @@
       <HintPath>..\packages\RabbitMQ.Client.3.4.0\lib\net35\RabbitMQ.Client.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
