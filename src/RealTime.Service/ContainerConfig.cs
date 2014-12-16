@@ -1,8 +1,5 @@
-﻿namespace RealTime.Web
+﻿namespace RealTime.Service
 {
-   using System.Reflection;
-   using System.Web.Mvc;
-
    using Castle.MicroKernel.Registration;
    using Castle.Windsor;
 
@@ -14,7 +11,7 @@
    using RealTime.Core;
    using RealTime.Core.DependencyInjection;
    using RealTime.Core.DependencyInjection.Castle;
-   using RealTime.Domain;
+   using RealTime.Domain.EventHandlers;
    using RealTime.Domain.Persistence;
    using RealTime.Domain.Persistence.RavenDb;
    using RealTime.ServiceBus;
@@ -26,17 +23,9 @@
       {
          var container = new WindsorContainer();
 
-         RegisterControllers(container);
          RegisterComponents(container);
 
          return container;
-      }
-
-      private static void RegisterControllers(IWindsorContainer container)
-      {
-         container.Register(Classes.FromAssembly(Assembly.GetExecutingAssembly())
-            .BasedOn<IController>()
-            .Configure(c => c.Named(c.Implementation.Name)).LifestylePerWebRequest());
       }
 
       private static void RegisterComponents(IWindsorContainer container)
@@ -49,6 +38,9 @@
          container.Register(Component.For<IServiceBus>().ImplementedBy<EasyNetQServiceBus>().LifestyleSingleton());
          container.Register(Component.For<IDocumentStore>().Instance(CreateRavenDbDocumentStore()).LifestyleSingleton());
          container.Register(Component.For<IStoreDocuments>().ImplementedBy<RavenDbDocumentStore>().LifestyleSingleton());
+
+         container.Register(Component.For<RequestPricesHandler>().ImplementedBy<RequestPricesHandler>().LifestyleTransient());
+         container.Register(Component.For<PriceAvailableHandler>().ImplementedBy<PriceAvailableHandler>().LifestyleTransient());
       }
 
       private static IBus CreateEasyNetQBus()

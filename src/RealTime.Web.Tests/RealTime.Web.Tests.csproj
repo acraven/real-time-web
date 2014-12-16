@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\PricesControllerTests\IndexShould.cs" />
     <Compile Include="Controllers\PricesControllerTests\RequestPricesShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routes\PriceRoutesTests.cs" />
@@ -79,9 +80,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RealTime.Core\RealTime.Core.csproj">
+      <Project>{2FEAB888-B9ED-44DF-8AA6-E9F25AA2F06F}</Project>
+      <Name>RealTime.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RealTime.Domain\RealTime.Domain.csproj">
       <Project>{80C75B0B-8A20-47C2-8901-4066C26DA765}</Project>
       <Name>RealTime.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RealTime.Messages\RealTime.Messages.csproj">
+      <Project>{55c6a4f5-2e55-45fa-b78e-4d364979cb95}</Project>
+      <Name>RealTime.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RealTime.ServiceBus\RealTime.ServiceBus.csproj">
+      <Project>{C3BC3C7B-EDF1-458F-A073-C36EA88215AD}</Project>
+      <Name>RealTime.ServiceBus</Name>
     </ProjectReference>
     <ProjectReference Include="..\RealTime.Web\RealTime.Web.csproj">
       <Project>{854067ec-d42f-4a55-b915-310921e25bf1}</Project>

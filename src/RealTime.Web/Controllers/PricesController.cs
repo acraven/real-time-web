@@ -1,32 +1,51 @@
 ﻿namespace RealTime.Web.Controllers
 {
    using System;
+   using System.Linq;
    using System.Web.Mvc;
 
-   using RealTime.Domain;
+   using RealTime.Core;
+   using RealTime.Domain.Persistence;
+   using RealTime.Messages.Commands;
+   using RealTime.Messages.Events;
+   using RealTime.ServiceBus;
+   using RealTime.Web.ViewModels.Prices;
 
    public class PricesController : Controller
    {
-      private readonly IRequestPrices requestPrices;
+      private readonly IGuidFactory guidFactory;
+      private readonly IServiceBus serviceBus;
+      private readonly IStoreDocuments storeDocuments;
 
-      public PricesController(IRequestPrices requestPrices)
+      public PricesController(
+         IGuidFactory guidFactory,
+         IServiceBus serviceBus,
+         IStoreDocuments storeDocuments)
       {
-         this.requestPrices = requestPrices;
+         this.guidFactory = guidFactory;
+         this.serviceBus = serviceBus;
+         this.storeDocuments = storeDocuments;
       }
 
-      [Route("prices/{requestId}")] 
       public ActionResult Index(Guid requestId)
       {
-         return this.View();
+         var prices = this.storeDocuments.Query<PriceAvailable>(c => c.RequestId == requestId);
+
+         return this.View(new PricesIndexViewModel { Prices = prices.Select(this.MapPrice).ToArray() });
       }
 
       [HttpPost]
-      [Route("prices/request-prices")]
       public ActionResult RequestPrices()
       {
-         var requestId = this.requestPrices.Request();
+         var requestId = this.guidFactory.Create();
+         this.serviceBus.Publish(new RequestPrices { Id = requestId });
 
          return this.RedirectToAction("Index", new { requestId });
+      }
+
+      private PricesIndexViewModel.Price MapPrice(PriceAvailable priceAvailable)
+      {
+         return new PricesIndexViewModel.Price { Sequence = priceAvailable.Sequence };
       }
    }
 }

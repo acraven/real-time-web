@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTime.Core.DependencyInj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTime.Core.DependencyInjection.Castle.Unit.Tests", "RealTime.Core.DependencyInjection.Castle.Unit.Tests\RealTime.Core.DependencyInjection.Castle.Unit.Tests.csproj", "{321B619E-C0E6-46FF-8F5C-6406EF463D18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTime.Domain.Unit.Tests", "RealTime.Domain.Unit.Tests\RealTime.Domain.Unit.Tests.csproj", "{95AB1C41-866F-42D5-BE6D-05989C1B4DED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{321B619E-C0E6-46FF-8F5C-6406EF463D18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{321B619E-C0E6-46FF-8F5C-6406EF463D18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{321B619E-C0E6-46FF-8F5C-6406EF463D18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95AB1C41-866F-42D5-BE6D-05989C1B4DED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95AB1C41-866F-42D5-BE6D-05989C1B4DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95AB1C41-866F-42D5-BE6D-05989C1B4DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95AB1C41-866F-42D5-BE6D-05989C1B4DED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

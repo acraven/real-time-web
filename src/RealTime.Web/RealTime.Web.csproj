@@ -49,12 +49,27 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="EasyNetQ, Version=0.39.2.334, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EasyNetQ.0.39.2.334\lib\net40\EasyNetQ.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="RabbitMQ.Client, Version=3.4.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RabbitMQ.Client.3.4.0\lib\net35\RabbitMQ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Abstractions">
+      <HintPath>..\packages\RavenDB.Client.3.0.3528\lib\net45\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight">
+      <HintPath>..\packages\RavenDB.Client.3.0.3528\lib\net45\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
@@ -124,6 +139,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Prices\PricesIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -175,16 +191,39 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RealTime.Core.DependencyInjection.Castle\RealTime.Core.DependencyInjection.Castle.csproj">
+      <Project>{8E503F93-8CF8-4071-8961-7ABA27598237}</Project>
+      <Name>RealTime.Core.DependencyInjection.Castle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RealTime.Core\RealTime.Core.csproj">
+      <Project>{2FEAB888-B9ED-44DF-8AA6-E9F25AA2F06F}</Project>
+      <Name>RealTime.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RealTime.Domain.Persistence.RavenDb\RealTime.Domain.Persistence.RavenDb.csproj">
+      <Project>{AE9283A3-082C-4C5D-82E2-DD08AD8CDEB7}</Project>
+      <Name>RealTime.Domain.Persistence.RavenDb</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RealTime.Domain\RealTime.Domain.csproj">
       <Project>{80C75B0B-8A20-47C2-8901-4066C26DA765}</Project>
       <Name>RealTime.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RealTime.Messages\RealTime.Messages.csproj">
+      <Project>{55c6a4f5-2e55-45fa-b78e-4d364979cb95}</Project>
+      <Name>RealTime.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RealTime.ServiceBus.EasyNetQ\RealTime.ServiceBus.EasyNetQ.csproj">
+      <Project>{CDCD1CFD-BC64-4E1C-B9E2-39CEDE986157}</Project>
+      <Name>RealTime.ServiceBus.EasyNetQ</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RealTime.ServiceBus\RealTime.ServiceBus.csproj">
+      <Project>{C3BC3C7B-EDF1-458F-A073-C36EA88215AD}</Project>
+      <Name>RealTime.ServiceBus</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

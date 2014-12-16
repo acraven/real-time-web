@@ -1,8 +1,11 @@
 ﻿namespace RealTime.Domain.Persistence.RavenDb
 {
    using System;
+   using System.Linq;
+   using System.Linq.Expressions;
 
    using Raven.Client;
+   using Raven.Client.Linq;
 
    public class RavenDbDocumentStore : IStoreDocuments
    {
@@ -37,6 +40,15 @@
          using (var session = this.documentStore.OpenSession())
          {
             return session.Load<TDocument>(id);
+         }
+      }
+
+      // TODO: Write tests to cover this
+      public T[] Query<T>(Expression<Func<T, bool>> predicate)
+      {
+         using (var session = this.documentStore.OpenSession())
+         {
+            return session.Query<T>().Where(predicate).ToArray();
          }
       }
    }

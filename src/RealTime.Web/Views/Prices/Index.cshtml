@@ -1,7 +1,14 @@
-﻿
+﻿@model RealTime.Web.ViewModels.Prices.PricesIndexViewModel
+
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
+<ul>
+   @foreach (var price in Model.Prices)
+   {
+      <li>@price.Sequence</li>
+   }
+</ul>

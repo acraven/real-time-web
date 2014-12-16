@@ -9,8 +9,6 @@
 
    using global::EasyNetQ;
 
-   using FakeItEasy;
-
    using NUnit.Framework;
 
    using RealTime.Core.DependencyInjection.Castle;
